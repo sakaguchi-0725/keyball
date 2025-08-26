@@ -43,5 +43,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_TERM 50
 
 #define KEYBALL_SCROLL_DIV_DEFAULT 7
-
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5

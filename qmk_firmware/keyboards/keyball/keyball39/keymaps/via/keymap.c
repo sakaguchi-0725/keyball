@@ -50,20 +50,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , SCRL_DVD ,                            CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , KBC_SAVE ,
     QK_BOOT  , KBC_RST  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , KBC_RST  , QK_BOOT
   ),
-
-  [4] = LAYOUT_universal(
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______
-  ),
 };
 // clang-format on
 
 // Combo definitions
 enum combo_events {
     OP_MINS,
-    KL_LAYER4,
+    KL_CTRL,
     LSCLN_QUOT,
     SD_CTRL,
     SA_TAB,
@@ -79,7 +72,7 @@ const uint16_t PROGMEM wq_combo[] = {KC_W, KC_Q, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     [OP_MINS] = COMBO(op_combo, KC_MINS),
-    [KL_LAYER4] = COMBO(kl_combo, MO(4)),
+    [KL_CTRL] = COMBO(kl_combo, KC_LCTL),
     [LSCLN_QUOT] = COMBO(lscln_combo, KC_QUOT),
     [SD_CTRL] = COMBO(sd_combo, KC_LCTL),
     [SA_TAB] = COMBO(sa_combo, KC_TAB),
@@ -87,8 +80,8 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // Auto enable scroll mode when the highest layer is 4
-    keyball_set_scroll_mode(get_highest_layer(state) == 4);
+    // Auto enable scroll mode when the highest layer is 1
+    keyball_set_scroll_mode(get_highest_layer(state) == 1);
     return state;
 }
 
