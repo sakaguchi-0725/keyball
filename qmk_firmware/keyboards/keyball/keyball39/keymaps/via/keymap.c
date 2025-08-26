@@ -63,12 +63,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Combo definitions
 enum combo_events {
     OP_MINS,
-    KL_CTRL,
+    KL_LAYER4,
     LSCLN_QUOT,
     SD_CTRL,
     SA_TAB,
-    WQ_GRV,
-    JK_LAYER4
+    WQ_GRV
 };
 
 const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
@@ -77,16 +76,14 @@ const uint16_t PROGMEM lscln_combo[] = {KC_L, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM sa_combo[] = {KC_S, KC_A, COMBO_END};
 const uint16_t PROGMEM wq_combo[] = {KC_W, KC_Q, COMBO_END};
-const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     [OP_MINS] = COMBO(op_combo, KC_MINS),
-    [KL_CTRL] = COMBO(kl_combo, KC_LCTL),
+    [KL_LAYER4] = COMBO(kl_combo, MO(4)),
     [LSCLN_QUOT] = COMBO(lscln_combo, KC_QUOT),
     [SD_CTRL] = COMBO(sd_combo, KC_LCTL),
     [SA_TAB] = COMBO(sa_combo, KC_TAB),
-    [WQ_GRV] = COMBO(wq_combo, KC_GRV),
-    [JK_LAYER4] = COMBO(jk_combo, MO(4))
+    [WQ_GRV] = COMBO(wq_combo, KC_GRV)
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
