@@ -67,7 +67,8 @@ enum combo_events {
     LSCLN_QUOT,
     SD_CTRL,
     SA_TAB,
-    WQ_GRV
+    WQ_GRV,
+    JK_LAYER4
 };
 
 const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
@@ -76,6 +77,7 @@ const uint16_t PROGMEM lscln_combo[] = {KC_L, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM sa_combo[] = {KC_S, KC_A, COMBO_END};
 const uint16_t PROGMEM wq_combo[] = {KC_W, KC_Q, COMBO_END};
+const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     [OP_MINS] = COMBO(op_combo, KC_MINS),
@@ -83,12 +85,13 @@ combo_t key_combos[COMBO_COUNT] = {
     [LSCLN_QUOT] = COMBO(lscln_combo, KC_QUOT),
     [SD_CTRL] = COMBO(sd_combo, KC_LCTL),
     [SA_TAB] = COMBO(sa_combo, KC_TAB),
-    [WQ_GRV] = COMBO(wq_combo, KC_GRV)
+    [WQ_GRV] = COMBO(wq_combo, KC_GRV),
+    [JK_LAYER4] = COMBO(jk_combo, MO(4))
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // Auto enable scroll mode when the highest layer is 3
-    keyball_set_scroll_mode(get_highest_layer(state) == 3);
+    // Auto enable scroll mode when the highest layer is 4
+    keyball_set_scroll_mode(get_highest_layer(state) == 4);
     return state;
 }
 
